@@ -637,8 +637,11 @@ input[type=radio]:checked + .review-mark-label {
 .setup-close {
   float: right;
 
-  top: 20px;
-  right: 20px;
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+
+  background: transparent;
 
   font-size: 70px;
   color: #000;
@@ -676,6 +679,14 @@ input[type=radio]:checked + .review-mark-label {
   left: 50px;
 }
 
+.wizard-eyes {
+  cursor: pointer;
+}
+
+.wizard-coat {
+  cursor: pointer;
+}
+
 .setup-fireball-wrap {
   position: absolute;
   left: 300px;
@@ -692,6 +703,8 @@ input[type=radio]:checked + .review-mark-label {
   background-size: 75px 75px;
   width: 75px;
   height: 75px;
+
+  cursor: pointer;
 }
 
 .setup-artifacts {
