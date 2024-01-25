@@ -14,6 +14,9 @@ var dataWizards = {
 //Контейнер клиентского динамического контента
 //Тут создаем повторяющихся элементы по шаблону template
 (function () {
+  var userDialog = document.querySelector('.setup');
+  userDialog.classList.remove('hidden');
+
   var wizards = [
     {
       name: window.util.arrayRandElement(dataWizards.names) + ' ' + window.util.arrayRandElement(dataWizards.secondNames),
@@ -58,7 +61,21 @@ var dataWizards = {
     fragment.appendChild(renderWizard(wizards[i]));
   }
   similarListElement.appendChild(fragment);
+
+  //При отправке формы воспользуется функцией upload и отменяется действие формы по умолчанию.
+  //Диалог закроется, как только данные будут успешно отправлены.
+  userDialog.querySelector('.setup-similar').classList.remove('hidden');
+  var form = userDialog.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.upload(new FormData(form), function (response) {
+      userDialog.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
+
+
 })();
+
 
 
 
